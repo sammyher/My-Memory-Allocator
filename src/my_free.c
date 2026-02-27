@@ -14,6 +14,7 @@ static void merge_next_block(t_block *block){
 
     if(g_heap_anchor){
       g_heap_anchor->block_count--;
+      g_heap_anchor->free_size += sizeof(t_block);
     }
   }
 }
@@ -30,6 +31,7 @@ static void merge_prev_block(t_block *block){
 
     if(g_heap_anchor){
       g_heap_anchor->block_count--;
+      g_heap_anchor->free_size += sizeof(t_block);
     }
   }
 }

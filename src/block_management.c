@@ -30,9 +30,8 @@ t_block *find_free_block(size_t size){
 t_block *split_block(t_block *block, size_t size){
   t_block *new_block;
 
-  new_block = (t_block *)(BLOCK_SHIFT(block) + size);
+  new_block = (t_block*)(BLOCK_SHIFT(block) + size);
 
-  new_block = (t_block*)((char*)block + sizeof(t_block) + size);
   new_block->size = block->size - size - sizeof(t_block);
   new_block->is_free = TRUE;
   new_block->next = block->next;

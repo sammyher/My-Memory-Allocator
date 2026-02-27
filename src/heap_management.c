@@ -5,10 +5,10 @@
 
 t_heap *g_heap_anchor = NULL;
 
-void* t_heap init_heap(void){
+void *t_heap init_heap(void){
   t_heap *heap;
 
-  heap (t_heap*) = mmap(
+  heap (t_heap *) = mmap(
     NULL,
     HEAP_SIZE,
     PROT_READ | PROT_WRITE, 
