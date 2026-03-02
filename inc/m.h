@@ -33,6 +33,8 @@ extern t_heap *g_heap_anchor;
 
 void *my_malloc(size_t size);
 void my_free(void *ptr);
+void *my_calloc(size_t num, size_t size);
+void *my_realloc(void *ptr, size_t new_size);
 
 t_block *split_block(t_block *block, size_t size);
 t_block *find_free_block(size_t size);

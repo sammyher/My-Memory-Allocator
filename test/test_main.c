@@ -54,10 +54,26 @@ int main() {
         printf("Correctly refused allocation larger than heap.\n");
     }
 
+    printf("\nTest 7: my_calloc Zero-Initialization\n");
+    size_t count = 10;
+    size_t size = sizeof(int);
+    int *array = (int *)my_calloc(count, size);
+    
+    if (array) {
+        int all_zero = 1;
+        for (size_t i = 0; i < count; i++) {
+            if (array[i] != 0) all_zero = 0;
+        }
+        printf("Allocated %zu ints. All elements are zero: %s\n", 
+                count, all_zero ? "YES" : "NO");
+    }
+    print_heap_stats();
+
     printf("\nFinal Cleanup\n");
     my_free(ptr1);
     my_free(ptr4);
     my_free(ptr5);
+    my_free(array);
     print_heap_stats();
 
     printf("\n--- Tests Complete ---\n");
