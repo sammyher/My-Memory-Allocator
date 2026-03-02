@@ -1,0 +1,14 @@
+obj/
+
+*.o
+
+
+# Should prob build a build file and just ignore that
+# I'll look into this later
+
+# Ignore all files
+*
+# Unignore all files with an extension (source code, Makefiles, etc.)
+!*.*
+# Unignore all directories
+!*/
