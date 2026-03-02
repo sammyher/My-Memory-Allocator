@@ -11,18 +11,6 @@
 #define HEAP_SHIFT(heap) ((char*)(heap) + sizeof(t_heap))
 #define BLOCK_SHIFT(block) ((char*)(block) + sizeof(t_block))
 
-extern t_heap *g_heap_anchor;
-
-void *my_malloc(size_t size);
-void my_free(void *ptr);
-
-t_block *split_block(t_block *block, size_t size);
-t_block *find_free_block(size_t size);
-void merge_blocks(t_block *block);
-
-t_heap *init_heap(void);
-t_heap *heap_get(size_t size);
-
 typedef enum e_bool{
   FALSE = 0, 
   TRUE = 1
@@ -41,6 +29,16 @@ typedef struct s_heap{
   size_t block_count;
 }t_heap;
 
+extern t_heap *g_heap_anchor;
 
+void *my_malloc(size_t size);
+void my_free(void *ptr);
+
+t_block *split_block(t_block *block, size_t size);
+t_block *find_free_block(size_t size);
+void merge_blocks(t_block *block);
+
+t_heap *init_heap(void);
+t_heap *heap_get(size_t size);
 
 #endif /* M_H */

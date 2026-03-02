@@ -19,7 +19,7 @@ void *my_malloc(size_t size){
 
   if(heap->block_count == 0){
     block = (t_block*)(HEAP_SHIFT(heap));
-    block->size = heap->free_size;
+    block->size = heap->free_size - sizeof(t_block);
     block->is_free = TRUE;
     block->next = NULL;
     block->prev = NULL;
